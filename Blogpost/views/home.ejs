@@ -1,0 +1,24 @@
+<!-- home.ejs -->
+<%- include("partials/header.ejs") %>
+
+<h1 style="text-align: center;">Home</h1>
+<% if(posts.length > 0) { %>
+    <% posts.forEach(post => { %>
+        <% if(post.title && post.content) { %>
+            <div class="homepostcard">
+                <h1 style="font-size: 2rem; padding: 10px; display: inline-block; background-color: rgb(231, 111, 111); text-decoration: underline; color: rgb(71, 52, 27); border-radius: 10px;">
+                    <%= post.title %>
+                </h1>
+                <p><%= post.content %></p>
+                <div>
+                    <a href="/edit/<%= post.id %>" class="btn btn-primary">Edit</a>
+                    <a href="/delete/<%= post.id %>" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        <% } %>
+    <% }) %>
+<% } else { %>
+    <h2>Click the +post in the nav bar</h2>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

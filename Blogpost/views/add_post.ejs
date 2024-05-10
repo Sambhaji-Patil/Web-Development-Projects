@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<h1 style="text-align: center;">Create Posts Here</h1>
+
+<div class="addpostcard">
+    <h1>Compose</h1>
+    <form class="" action="/add" method="post"> <!-- Modified action -->
+        <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" type="text" name="postTitle">
+            <br><br>
+            <label>Post</label>
+            <br><br>
+            <textarea class="form-control" name="postBody" rows="5" cols="30"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") %>
