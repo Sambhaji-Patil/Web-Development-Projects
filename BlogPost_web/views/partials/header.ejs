@@ -1,0 +1,24 @@
+<!-- header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css" >
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo"><a href="/">BlogPost</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>
+              <form action="/add" method="POST"> <!-- Updated action -->
+                <button class="add_post_btn" type="submit">+Post</button>
+              </form>
+            </li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
+      </div>

@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<h1 style="text-align: center; padding-top: 100px; color: white;">Create Posts Here</h1>
+<hr width="50%" style="padding-bottom: 2px; margin-bottom: 50px;" color="grey">
+
+<div class="addpostcard">
+    <h1 style="color: white;">Compose</h1>
+    <hr width="50%" style="padding-bottom: 2px; margin-bottom: 50px;" color="grey">
+    <form class="" action="/add" method="post"> <!-- Modified action -->
+        <div class="form-group">
+            <label style="color: white; font-size: 1.5rem;">Title: </label>
+            <input class="form-control" type="text" name="postTitle">
+            <br><br>
+            <label style="color: white; font-size: 1.5rem;">Post</label>
+            <br><br>
+            <textarea class="form-control" name="postBody" rows="10" cols="30"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" name="button" style="
+        font-size: 1.5rem;">Publish</button>
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") %>
