@@ -19,7 +19,11 @@
             <div class="result" style="background-color:rgb(197, 221, 241) ;border-radius: 5px; padding: 10px;">
                 <h2>Weather Forecast for <%= result.city %>:</h2>
                 <strong style="background-color: crimson; border-radius: 5px; font-size: 65px;padding: 5px;"><%= result.willItRain ? 'Yes ☔' : 'No 🌤️' %></strong>
-                <p><%= result.forecast %></p>
+                <p>Detail: <%= result.forecast %></p>
+                <div class="temp" style="background-color: rgb(124, 232, 240); border-radius: 5px; font-size: 20px; margin-left: 50px; margin-right: 50px;" >
+                    <p>Min.Temp: <%= result.minTemp %>°C</p>
+                    <p>Max.Temp: <%= result.maxTemp %>°C</p>
+                </div>
             </div>
         <% } %>
     </div>

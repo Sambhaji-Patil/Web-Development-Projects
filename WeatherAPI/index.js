@@ -29,23 +29,28 @@ app.get('/will-it-rain', async (req, res) => {
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
 
-        const isRaining = forecasts.some(forecast => {
-            const forecastDate = new Date(forecast.dt * 1000);
-            return forecastDate.getDate() === tomorrow.getDate() && 
-                   (forecast.weather[0].main.toLowerCase().includes('rain') || 
-                    forecast.weather[0].description.toLowerCase().includes('rain'));
-        });
-
-        const forecastDescription = forecasts.find(forecast => {
+        const tomorrowForecasts = forecasts.filter(forecast => {
             const forecastDate = new Date(forecast.dt * 1000);
             return forecastDate.getDate() === tomorrow.getDate();
-        }).weather[0].description;
+        });
+
+        const isRaining = tomorrowForecasts.some(forecast => 
+            forecast.weather[0].main.toLowerCase().includes('rain') || 
+            forecast.weather[0].description.toLowerCase().includes('rain')
+        );
+
+        const minTemp = Math.min(...tomorrowForecasts.map(forecast => forecast.main.temp_min));
+        const maxTemp = Math.max(...tomorrowForecasts.map(forecast => forecast.main.temp_max));
+
+        const forecastDescription = tomorrowForecasts[0].weather[0].description;
 
         res.render('index.ejs', {
             result: {
                 city: city,
                 willItRain: isRaining,
-                forecast: forecastDescription
+                forecast: forecastDescription,
+                minTemp: minTemp,
+                maxTemp: maxTemp
             }
         });
     } catch (error) {
@@ -53,6 +58,7 @@ app.get('/will-it-rain', async (req, res) => {
         res.status(500).send('Error retrieving weather data');
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
