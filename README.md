@@ -5,3 +5,8 @@
 <img src="Currency_Converter/currency_calculator.jpeg" height="300px" />
 <h1>Rock Paper Scissors</h1>
 <img src="Rock_Paper_Scissors/rock_paper_scissors.jpeg" height="300px" />
+<h1>Rain Predictor</h1>
+<div>
+  <img src="WeatherAPI/img2.jpg" height="300px" />
+  <img src="WeatherAPI/img1.jpg" height="300px" />
+</div>
